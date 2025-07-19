@@ -5,12 +5,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: flex-start;
+  min-height: 100vh;
   margin: 0;
+  padding-top: 30px;
 }
 
-h1 { margin-bottom: 20px; }
+h1 { margin: 0 0 10px; }
+
+.controls { display: flex; gap: 1rem; margin-bottom: 15px; flex-wrap: wrap; }
+.controls label { font-size: .9rem; display: flex; align-items: center; gap: .35rem; }
+select { background: #1d2329; color: #e5e7eb; border: 1px solid #2c333b; padding: 4px 8px; border-radius: 4px; }
+.hidden { display: none !important; }
 
 .board {
   display: grid;
@@ -32,7 +38,9 @@ h1 { margin-bottom: 20px; }
   color: #3fa9ff;
   user-select: none;
   transition: background .25s, transform .25s;
+  outline: none;
 }
+.cell:focus { box-shadow: 0 0 0 3px #3fa9ff55; }
 .cell:active { transform: scale(.95); }
 .cell.x { color: #3fa9ff; }
 .cell.o { color: #ffb347; }
@@ -40,10 +48,10 @@ h1 { margin-bottom: 20px; }
 .win { background: #2e7d32 !important; color: #fff !important; animation: pulse .6s ease-in-out infinite alternate; }
 @keyframes pulse { from { transform: scale(1); } to { transform: scale(1.06); } }
 
-.message { margin-top: 20px; font-size: 1.5rem; min-height: 2rem; }
+.message { margin: 18px 0 5px; font-size: 1.2rem; min-height: 1.4rem; }
 
 button {
-  margin-top: 10px;
+  margin-top: 8px;
   padding: 10px 20px;
   border: none;
   background: #3fa9ff;
@@ -51,29 +59,12 @@ button {
   font-size: 1rem;
   cursor: pointer;
   border-radius: 5px;
-  transition: background .25s;
-}
+  transition: background .25s; }
 button:hover { background: #3290d8; }
 
 /* Modal styles */
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  z-index: 100;
-}
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; padding: 1rem; z-index: 100; }
 .modal.hidden { display: none; }
-.modal-content {
-  background: #1d2329;
-  padding: 25px 35px;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,.4);
-  text-align: center;
-  max-width: 320px;
-}
+.modal-content { background: #1d2329; padding: 25px 35px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,.4); text-align: center; max-width: 320px; }
 .modal-content p { font-size: 1.4rem; margin: 0 0 15px; }
 .modal-content button { margin-top: 0; width: 100%; }
