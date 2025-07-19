@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>TicTacToe</title>
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -17,18 +7,35 @@
 </head>
 <body>
   <h1>Tic Tac Toe</h1>
-  <div class="board" id="board">
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
-    <div class="cell" data-cell></div>
+  <div class="controls">
+    <label>
+      Mode:
+      <select id="modeSelect" aria-label="Game mode">
+        <option value="human" selected>Player vs Player</option>
+        <option value="ai">Player vs AI</option>
+      </select>
+    </label>
+    <label id="difficultyWrapper" class="hidden">
+      Difficulty:
+      <select id="difficulty" aria-label="AI difficulty">
+        <option value="easy">Easy</option>
+        <option value="hard" selected>Hard</option>
+      </select>
+    </label>
   </div>
-  <div class="message" id="message"></div>
+
+  <div class="board" id="board" aria-label="Tic Tac Toe board" role="grid">
+    <div class="cell" data-cell role="gridcell" aria-label="cell 1" tabindex="0"></div>
+    <div class="cell" data-cell role="gridcell" aria-label="cell 2" tabindex="0"></div>
+    <div class="cell" data-cell role="gridcell" aria-label="cell 3" tabindex="0"></div>
+    <div class="cell" data-cell role="gridcell" aria-label="cell 4" tabindex="0"></div>
+    <div class="cell" data-cell role="gridcell" aria-label="cell 5" tabindex="0"></div>
+    <div class="cell" data-cell role="gridcell" aria-label="cell 6" tabindex="0"></div>
+    <div class="cell" data-cell role="gridcell" aria-label="cell 7" tabindex="0"></div>
+    <div class="cell" data-cell role="gridcell" aria-label="cell 8" tabindex="0"></div>
+    <div class="cell" data-cell role="gridcell" aria-label="cell 9" tabindex="0"></div>
+  </div>
+  <div class="message" id="message" aria-live="polite"></div>
   <button id="restartBtn">Restart</button>
 
   <!-- Winner / Draw Modal -->
@@ -40,10 +47,5 @@
   </div>
 
   <script src="script.js"></script>
-</body>
-</html>
-<!-- partial -->
-  <script  src="./script.js"></script>
-
 </body>
 </html>
