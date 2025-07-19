@@ -216,5 +216,3 @@ function indicesEmpty(state) {
   state.forEach((v,i) => { if (!v) out.push(i); });
   return out;
 }
-
-
